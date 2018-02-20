@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class Square extends Component {
-    static propTypes = {
-        black: PropTypes.bool
-    }
 
     render() {
         const { black } = this.props;
@@ -22,4 +19,8 @@ export default class Square extends Component {
             </div>
         );
     }
+}
+
+Square.propTypes = {
+    black: PropTypes.bool
 }
