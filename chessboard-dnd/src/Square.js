@@ -5,7 +5,9 @@ export default class Square extends Component {
 
     render() {
         const { black } = this.props;
+        // fill will alternate the Square backgroundColor using a ternary
         const fill = black ? 'black' : 'white';
+        // stroke will alternate the Knight color to be opposite of its parent square
         const stroke = black ? 'white' : 'black';
         
         return (
@@ -21,6 +23,7 @@ export default class Square extends Component {
     }
 }
 
+// Enforces that the square color prop is of the boolean type
 Square.propTypes = {
     black: PropTypes.bool
 }
