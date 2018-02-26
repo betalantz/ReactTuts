@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Knight from './Knight';
-// import Square from './Square'
 import Board from './Board';
+// Game will be the new state manager
+import { observe } from './Game'
 
 // entry point to the DOM
-ReactDOM.render(
-    // knightPosition is the only state that we'll need to track, probably eventually on the Board component
-    // We'll hard code it here for now
-    <Board knightPosition={[0,0]} />,
-    document.getElementById('root')
+const rootEl = document.getElementById('root');
+// observe establishes a subscription API for the knightPosition state
+observe(knightPosition =>
+  ReactDOM.render(
+    <Board knightPosition={knightPosition} />,
+    rootEl
+  )
 );
