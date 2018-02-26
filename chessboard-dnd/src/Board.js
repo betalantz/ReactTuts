@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Square from './Square';
 import Knight from './Knight';
+import { moveKnight } from './Game'
 
 export default class Board extends Component {
     renderSquare(i) { 
@@ -19,13 +20,20 @@ export default class Board extends Component {
         
         return (
             // must assign unique key to iteratively generated components
+            // adding onClick event handler
             <div key={i}
-                style={{ width: '12.5%', height: '12.5%' }}>
+                style={{ width: '12.5%', height: '12.5%' }}
+                onClick={() => this.handleSquareClick(x, y)}>
                 <Square black={black}>
                     {piece}
                 </Square>
             </div>
         );
+    }
+
+    // update the clicked Square state on Game
+    handleSquareClick(toX, toY) {
+        moveKnight(toX, toY)
     }
     
     render() {
