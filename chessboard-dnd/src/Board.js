@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Square from './Square';
 import Knight from './Knight';
-import { moveKnight } from './Game'
+import { canMoveKnight, moveKnight } from './Game'
 
 export default class Board extends Component {
     renderSquare(i) { 
@@ -33,7 +33,9 @@ export default class Board extends Component {
 
     // update the clicked Square state on Game
     handleSquareClick(toX, toY) {
-        moveKnight(toX, toY)
+        if (canMoveKnight(toX, toY)){
+            moveKnight(toX, toY)
+        }
     }
     
     render() {
