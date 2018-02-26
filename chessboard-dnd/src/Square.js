@@ -4,13 +4,16 @@ import PropTypes from 'prop-types';
 export default class Square extends Component {
 
     render() {
+        // destructuring assignment of 'black' property from props to distinct variable
         const { black } = this.props;
         // fill will alternate the Square backgroundColor using a ternary
         const fill = black ? 'black' : 'white';
-        // stroke will alternate the Knight color to be opposite of its parent square
+        // stroke will alternate the Knight color to be opposite of square background color
         const stroke = black ? 'white' : 'black';
         
         return (
+            // give each Square its color properties and dimension
+            // pass children to the props so Square will be aware of Knight
             <div style={{ 
                 backgroundColor: fill,
                 color: stroke,
@@ -23,7 +26,7 @@ export default class Square extends Component {
     }
 }
 
-// Enforces that the square color prop is of the boolean type
+// Declares a boolean-type variable which will track the state of the fill and stroke color
 Square.propTypes = {
     black: PropTypes.bool
 }
